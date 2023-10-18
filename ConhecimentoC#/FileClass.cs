@@ -49,7 +49,9 @@ namespace FileSee
                 }
             }
         }
-
+        /// <summary>
+        /// Command Open File
+        /// </summary>       
         public static void OpenFile(string arquivos)
         {
             using (StreamReader arquivo = File.OpenText(arquivos))
@@ -62,6 +64,9 @@ namespace FileSee
             }
         }
 
+        /// <summary>
+        /// Command Create File
+        /// </summary>
         public static void CreateFile(string nomeArquivo,string conteudoArquivo)
         {
             using (StreamWriter writer = File.CreateText(nomeArquivo))
