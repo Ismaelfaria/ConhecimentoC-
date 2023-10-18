@@ -1,5 +1,4 @@
-﻿using Calculo;
-using FileSee;
+﻿
 using MenuGlobal;
 
 class prog

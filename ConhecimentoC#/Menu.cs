@@ -14,7 +14,7 @@ namespace MenuGlobal
         {
             while (true)
             {
-                String mensagem = "Ola usuario, bem vindo ao programa\n" +
+                var mensagem = "Ola usuario, bem vindo ao programa\n" +
                                   "\nUtilizando programação funcional" +
                                   "\n\n" +
                                   "\nDigite uma das opções abaixo:  " +
@@ -26,8 +26,8 @@ namespace MenuGlobal
 
                 Console.WriteLine(mensagem);
 
-                var valor = int.Parse(Console.ReadLine());
-
+                int valor;
+                int.TryParse(Console.ReadLine(), out valor);
 
                 if (valor == Constante.SAIDA_PROGRAMA)
                 {
@@ -42,8 +42,9 @@ namespace MenuGlobal
                 else if (valor == Constante.TABUADA)
                 {
                     Console.WriteLine("=================Opção Tabuada==================");
-                    Console.Write("Digite o numero que deseja na tabuada: ");
-                    var num = int.Parse(Console.ReadLine());
+                   Console.Write("Digite o numero que deseja na tabuada: ");
+                    int num;
+                    int.TryParse(Console.ReadLine(), out num);
                     Tabuada.tabuada(num);
                     Console.WriteLine("\n============================================\n");
 

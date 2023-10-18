@@ -23,7 +23,8 @@ namespace Calculo
             for (int i = 1; i <= qtdNotas; i++)
             {
                 Console.Write("-Digite a nota numero " + i + ": ");
-                var nota = int.Parse(Console.ReadLine());
+                int nota;
+                int.TryParse(Console.ReadLine(), out nota);
                 totalNotas += nota;
                 notas.Add(nota);
             }

@@ -10,10 +10,8 @@ namespace FileSee
     {
         public static void LerArquivos(string nomeDoArquivo)
         {
-            //Fiz umas melhorias.
-            //Já chamamos o método informando o nome do arquivo como parametro.
-
-            string arquivoComCaminho = Constante.caminho + "arq" + nomeDoArquivo + ".txt";
+            
+            var arquivoComCaminho = Constante.CAMINHO + "arq" + nomeDoArquivo + ".txt";
             //O caminho agr é uma constante e foi chamada importando o namespace
 
             Console.WriteLine("==\n" + "==Lendo o arquivo -- " + arquivoComCaminho + "\n==" + "\n===========Conteúdo===========");
@@ -36,26 +34,26 @@ namespace FileSee
                                    "Deseja cria um novo arquivo no mesmo caminho:";
                 Console.WriteLine(textErro);
 
-                var T = Console.ReadLine();
-                var Compar = string.Equals(sim, T, StringComparison.OrdinalIgnoreCase);
+                var t = Console.ReadLine();
+                var Compar = string.Equals(sim, t, StringComparison.OrdinalIgnoreCase);
                 if (Compar)
                 {
                     Console.WriteLine("Digite o nome do seu arquivo: ");
-                    var Ti = Console.ReadLine();
-                    var newFile = Constante.caminho + Ti + ".txt";
+                    var ti = Console.ReadLine();
+                    var newFile = Constante.CAMINHO + ti + ".txt";
 
                     Console.WriteLine("Deseja escrever algo no arquivo:");
-                    var Tip = Console.ReadLine();
-                    var Compare = string.Equals(sim, Tip, StringComparison.OrdinalIgnoreCase);
+                    var tip = Console.ReadLine();
+                    var compare = string.Equals(sim, tip, StringComparison.OrdinalIgnoreCase);
 
-                    if (Compare)
+                    if (compare)
                     {
                         Console.WriteLine("Escreve o conteudo:");
-                        string Typi = Console.ReadLine();
+                        var typi = Console.ReadLine();
                         using (StreamWriter writer = File.CreateText(newFile))
                         {
                             // Você pode adicionar informações iniciais ao arquivo se desejar.
-                            writer.WriteLine(Typi);
+                            writer.WriteLine(typi);
                         }
                     }
                     Console.WriteLine("Sucesso arquivo criado!!!");
