@@ -8,7 +8,7 @@ namespace FileSee
 {
     internal class Arquivo
     {
-        public static void LerArquivos(string nomeDoArquivo)
+        public static void SeeAndCreate(string nomeDoArquivo)
         {
             
             var arquivoComCaminho = Constante.CAMINHO + nomeDoArquivo + ".txt";

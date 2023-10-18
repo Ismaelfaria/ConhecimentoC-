@@ -35,8 +35,9 @@ namespace MenuGlobal
                 }
                 else if (valor == Constante.LER_ARQUIVOS)
                 {
-                    Console.WriteLine("=========Opção ler arquivos==========");
-                    Arquivo.LerArquivos("arq1");
+                    Console.Write("=========Opção ler arquivos==========\n" + "\nDigite o nome do arquivo: ");
+                    var name = Console.ReadLine();
+                    Arquivo.SeeAndCreate(name);
                     Console.WriteLine("=====================================");
                 }
                 else if (valor == Constante.TABUADA)
