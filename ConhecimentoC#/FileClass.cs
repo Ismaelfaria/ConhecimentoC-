@@ -11,55 +11,67 @@ namespace FileSee
         public static void LerArquivos(string nomeDoArquivo)
         {
             
-            var arquivoComCaminho = Constante.CAMINHO + "arq" + nomeDoArquivo + ".txt";
-            //O caminho agr é uma constante e foi chamada importando o namespace
+            var arquivoComCaminho = Constante.CAMINHO + nomeDoArquivo + ".txt";
 
             Console.WriteLine("==\n" + "==Lendo o arquivo -- " + arquivoComCaminho + "\n==" + "\n===========Conteúdo===========");
             if (File.Exists(arquivoComCaminho))
             {
-                using (StreamReader arquivo = File.OpenText(arquivoComCaminho))
-                {
-                    string linha;
-                    while ((linha = arquivo.ReadLine()) != null)
-                    {
-                        Console.WriteLine(linha);
-                    }
-                }
+                OpenFile(arquivoComCaminho);
             }
             else
             {
                 var sim = "sim";
                 var textErro = "--------ERRO-------------\n" +
                                    "ARQUIVO NAO ENCONTRADO\n" +
-                                   "Deseja cria um novo arquivo no mesmo caminho:";
+                                   "Deseja cria um novo arquivo no mesmo caminho?";
                 Console.WriteLine(textErro);
 
-                var t = Console.ReadLine();
-                var Compar = string.Equals(sim, t, StringComparison.OrdinalIgnoreCase);
-                if (Compar)
+                var respCreate = Console.ReadLine();
+                var comparResp = string.Equals(sim, respCreate, StringComparison.OrdinalIgnoreCase);
+                if (comparResp)
                 {
                     Console.WriteLine("Digite o nome do seu arquivo: ");
-                    var ti = Console.ReadLine();
-                    var newFile = Constante.CAMINHO + ti + ".txt";
+                    var respNameFile = Console.ReadLine();
+                    var newPath = Constante.CAMINHO + respNameFile + ".txt";
 
                     Console.WriteLine("Deseja escrever algo no arquivo:");
-                    var tip = Console.ReadLine();
-                    var compare = string.Equals(sim, tip, StringComparison.OrdinalIgnoreCase);
+                    var respYNContentFile = Console.ReadLine();
+                    var compareResp = string.Equals(sim, respYNContentFile, StringComparison.OrdinalIgnoreCase);
 
-                    if (compare)
+                    if (compareResp)
                     {
                         Console.WriteLine("Escreve o conteudo:");
-                        var typi = Console.ReadLine();
-                        using (StreamWriter writer = File.CreateText(newFile))
-                        {
-                            // Você pode adicionar informações iniciais ao arquivo se desejar.
-                            writer.WriteLine(typi);
-                        }
+                        var contentFile = Console.ReadLine();
+
+                        CreateFile(newPath, contentFile);
                     }
                     Console.WriteLine("Sucesso arquivo criado!!!");
                 }
             }
         }
+
+        public static void OpenFile(string arquivos)
+        {
+            using (StreamReader arquivo = File.OpenText(arquivos))
+            {
+                string linha;
+                while ((linha = arquivo.ReadLine()) != null)
+                {
+                    Console.WriteLine(linha);
+                }
+            }
+        }
+
+        public static void CreateFile(string nomeArquivo,string conteudoArquivo)
+        {
+            using (StreamWriter writer = File.CreateText(nomeArquivo))
+            {
+                // Você pode adicionar informações iniciais ao arquivo se desejar.
+                writer.WriteLine(conteudoArquivo);
+            }
+        }
+
+
     }
 }
 

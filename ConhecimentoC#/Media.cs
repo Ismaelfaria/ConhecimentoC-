@@ -13,10 +13,10 @@ namespace Calculo
         public static void Aluno()
         {
             Console.Write("digite o nome do aluno: ");
-            var nome = Console.ReadLine();
+            var respName = Console.ReadLine();
             var qtdNotas = 3;
             Console.WriteLine("-------------------");
-            Console.WriteLine("Digite as " + qtdNotas + " notas do aluno " + nome);
+            Console.WriteLine("Digite as " + qtdNotas + " notas do aluno " + respName);
 
             var notas = new List<int>();
             var totalNotas = 0;
@@ -29,7 +29,7 @@ namespace Calculo
                 notas.Add(nota);
             }
             var media = totalNotas / notas.Count;
-            Console.WriteLine("====\nA media do aluno " + nome + " é: " + media);
+            Console.WriteLine("====\nA media do aluno " + respName + " é: " + media);
             Console.WriteLine("As notas são\n");
             foreach (var nota in notas)
             {

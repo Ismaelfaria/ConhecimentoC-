@@ -8,6 +8,7 @@ namespace FileSee
 {
     internal class Constante
     {
+        
         public static string CAMINHO = @"C:\Users\ismaelana\OneDrive\Documentos\arquivo\";
 
         public static int SAIDA_PROGRAMA = 0;
