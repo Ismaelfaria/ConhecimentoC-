@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,14 @@ namespace FileSee
 {
     internal class Arquivo
     {
+        private static string caminhoArquivo()
+        {
+            return ConfigurationManager.AppSettings["caminho_arquivos"];
+        }
         public static void SeeAndCreate(string nomeDoArquivo)
         {
             
-            var arquivoComCaminho = Constante.CAMINHO + nomeDoArquivo + ".txt";
+            var arquivoComCaminho = caminhoArquivo + nomeDoArquivo + ".txt";
 
             Console.WriteLine("==\n" + "==Lendo o arquivo -- " + arquivoComCaminho + "\n==" + "\n===========Conteúdo===========");
             if (File.Exists(arquivoComCaminho))
@@ -32,7 +37,7 @@ namespace FileSee
                 {
                     Console.WriteLine("Digite o nome do seu arquivo: ");
                     var respNameFile = Console.ReadLine();
-                    var newPath = Constante.CAMINHO + respNameFile + ".txt";
+                    var newPath = caminhoArquivo + respNameFile + ".txt";
 
                     Console.WriteLine("Deseja escrever algo no arquivo:");
                     var respYNContentFile = Console.ReadLine();
