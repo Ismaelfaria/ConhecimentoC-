@@ -3,16 +3,18 @@ using FileSee;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Calculo
 {
-    internal class Media
+    internal class Media : Constante
     {
         public static void Aluno()
         {
-            Console.Write("digite o nome do aluno: ");
+        Console.Write("digite o nome do aluno: ");
             var respName = Console.ReadLine();
             var qtdNotas = 3;
             Console.WriteLine("-------------------");
@@ -35,7 +37,7 @@ namespace Calculo
             {
                 Console.WriteLine("-nota: " + nota + "\n");
             }
-
+        
         }
     }
 }
